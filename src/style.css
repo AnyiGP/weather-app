@@ -1,0 +1,21 @@
+body {
+    background-image: url(./img/bg-02.jpg);
+}
+
+.Title {
+    font-size: 30px;
+    font-family: "Oswald";
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    line-height: 1.2;
+    text-align: center;
+  }
+ 
+.pTitle {
+    font-size: 14px;
+    font-family: "Montserrat";
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    text-align: center;
+
+}
