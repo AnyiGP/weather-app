@@ -20,7 +20,7 @@
       en tiempo real
     </p>
     <div class="container-fluid row">
-        <div class="col-4">
+      <div class="col-4">
         <form class="form-inline">
           <input
             class="form-control mr-sm-2"
@@ -33,12 +33,19 @@
             Buscar Ciudad
           </button>
         </form>
-        <select name="Provincias" id="provincias">Provincias</select>
+        <select
+          name="Provincias"
+          id="provincias"
+          class="form-select"
+          aria-label="Default select example"
+        >
+          <option selected>Provincias</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </div>
     </div>
-    </div>
-
-
-    
   </body>
   <script type="module" src="./src/main.js"></script>
 </html>

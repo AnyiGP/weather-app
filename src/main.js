@@ -2,46 +2,27 @@ console.log("Hola")
 
 const key = "4e5536b1e0f31785b374595576ddf91c"
 
-//ejemplo llamada api
+const url = "https://api.openweathermap.org/data/2.5/weather?q="
 
-
-const urlEx = "https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid="
-
-const url = "https://api.openweathermap.org/data/2.5/weather?"
-
-const urlCityId = "https://api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}"
+//const urlCityId = "https://api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}"
 
 const metricEndPoint = "&units=metric"
 
-const urlPrueba = "https://api.openweathermap.org/data/2.5/weather?q=Catamarca,AR&appid=4e5536b1e0f31785b374595576ddf91c"
+const ciudades = "Catamarca" //select con las provincias de argentina select.value
 
-const urlNombrePais = "https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}"
+const pais = "AR" //
 
-// //HACER EL LLAMADO A LA API//
+const urlPrueba = `https://api.openweathermap.org/data/2.5/weather?q=${ciudades},${pais}&appid=${key}${metricEndPoint}`
 
-// const urlBase = 'https://api.openweathermap.org/data/2.5/weather?';
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'Key': '4e5536b1e0f31785b374595576ddf91c',
-// 		'metric': '&units=metric'
-// 	}
-// };
-
-// try {
-// 	const response = await fetch(urlBase, options);
-// 	const result = await response.text();
-// 	console.log(result);
-// } catch (error) {
-// 	console.error(error);
-// }
-
+// const urlNombrePais = "https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}"
 
 const getCity = async () => {
     const res = await fetch(urlPrueba)
     const data = await res.json()
     //const city = data.result
+    console.log(data.weather) //devuelve un [{id, main, description:"clear sky", icon:"01d", id:800, main:"Clear"}]
     console.log(data.name)
+    console.log(data.main.temp)
 
 }
 
