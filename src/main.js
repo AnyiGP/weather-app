@@ -50,7 +50,7 @@ const soloAR = (nombres, search) => {
   console.log(ciudadesFiltradas);
 };
 
-//mostrar los iconos https://openweathermap.org/img/wn/${icono}
+//mostrar los iconos https://openweathermap.org/img/wn/${icono}@4x.png
 
 let getIcon = async () => {
   const res = await fetch(urlPrueba);
