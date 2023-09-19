@@ -63,7 +63,8 @@ let getIcon = async () => {
   //return data.weather.icon
   let icono = data.weather[0].icon;
   let row = document.getElementById("divRow");
-  return (row.innerHTML += `<img src="${iconoURL}${icono}@4x.png" alt="">`);
+  return (row.innerHTML += `<img src="${iconoURL}${icono}@4x.png" alt="">
+  <p class="pTitle">${data.name}</p>`);
 };
 
 console.log(getIcon());
