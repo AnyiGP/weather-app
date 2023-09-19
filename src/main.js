@@ -8,11 +8,17 @@ const url = "https://api.openweathermap.org/data/2.5/weather?q="
 
 const metricEndPoint = "&units=metric"
 
+const lang = '&lang=es'
+
 const ciudades = "Catamarca" //select con las provincias de argentina select.value
+
+const provincias = document.getElementById("Catamarca").value
+
+let iconoURL = 'https://openweathermap.org/img/wn/' 
 
 const pais = "AR" //
 
-const urlPrueba = `https://api.openweathermap.org/data/2.5/weather?q=${ciudades},${pais}&appid=${key}${metricEndPoint}`
+const urlPrueba = `https://api.openweathermap.org/data/2.5/weather?q=${provincias},${pais}&appid=${key}${metricEndPoint}${lang}`
 
 // const urlNombrePais = "https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}"
 
@@ -22,8 +28,36 @@ const getCity = async () => {
     //const city = data.result
     console.log(data.weather) //devuelve un [{id, main, description:"clear sky", icon:"01d", id:800, main:"Clear"}]
     console.log(data.name)
-    console.log(data.main.temp)
-
+    console.log(data.main.temp) 
+    console.log(data.sys.country)
+    //return data.weather.icon
+    console.log(data.weather.icon)
 }
 
 console.log(getCity())
+
+//se puede hacer que recorra todo y que me devuelva solo las ciudades que contengan AR?
+//filtrar toda la data y que me devuelva solo ciudades que tengan ar
+const soloAR = (nombres, search) => {
+    const ciudadesFiltradas = data.filter((nombre) => nombre.includes("AR"));
+    console.log(ciudadesFiltradas);
+}
+
+
+//mostrar los iconos https://openweathermap.org/img/wn/${icono}
+
+let getIcon = async () => {
+    const res = await fetch(urlPrueba)
+    const data = await res.json()
+    //const city = data.result
+    console.log(data.weather) //devuelve un [{id, main, description:"clear sky", icon:"01d", id:800, main:"Clear"}]
+    console.log(data.name)
+    console.log(data.main.temp) 
+    console.log(data.sys.country)
+    //return data.weather.icon
+    let icono = data.weather[0].icon
+    let row = document.getElementById('divRow')
+    return row.innerHTML += `<img src="${iconoURL}${icono}@4x.png" alt="">`
+}
+
+console.log(getIcon())
