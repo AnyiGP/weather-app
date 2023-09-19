@@ -13,6 +13,15 @@ const lang = '&lang=es'
 const ciudades = "Catamarca" //select con las provincias de argentina select.value
 
 const provincias = document.getElementById("Catamarca").value
+// Obtén el elemento select por su ID o cualquier otro selector apropiado
+const selectElement = document.getElementById('miSelect');
+
+// Agrega un oyente de eventos al elemento select
+selectElement.addEventListener('change', (e) => {
+  // El código que deseas ejecutar cuando se selecciona un elemento en el select
+  const valorSeleccionado = e.target.value;
+  console.log(`Se seleccionó: ${valorSeleccionado}`);
+});
 
 let iconoURL = 'https://openweathermap.org/img/wn/' 
 
@@ -61,3 +70,5 @@ let getIcon = async () => {
 }
 
 console.log(getIcon())
+
+
