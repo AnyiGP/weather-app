@@ -59,33 +59,20 @@ const soloAR = (nombres, search) => {
   console.log(ciudadesFiltradas);
 };
 
-//mostrar los iconos https://openweathermap.org/img/wn/${icono}@4x.png
-
-const obtenerUrlCiudad = (ciudadDelMundo) => {
-  const urlCiudad = `https://api.openweathermap.org/data/2.5/weather?q=${ciudadDelMundo}&appid=${key}${metricEndPoint}${lang}`;
+const buscarCiudad = (ciudad) => {
+  const urlCiudad = `https://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${key}${metricEndPoint}${lang}`;
   console.log(urlCiudad);
-  getCityWorld(urlCiudad);
+  getCity(urlCiudad)
 };
 
-const getCityWorld = async (url) => {
-  const res = await fetch(url);
-  const data = await res.json();
-  //const city = data.result
+// document.querySelector("#search-input").addEventListener("blur", (e) => {
+//   const ciudadDelMundo = e.target.value;
+//   buscarCiudad(ciudadDelMundo);
+// });
 
-  console.log(data.name);
-};
-
-getCityWorld();
-
-//onclick al botón de buscar
-document.querySelector("#buscador").addEventListener("blur", (e) => {
-  const ciudadDelMundo = e.target.value;
-  obtenerUrlCiudad(ciudadDelMundo);
+/////////////////////////////
+document.querySelector("#search-form").addEventListener("submit", (e) => {
+ e.preventDefault()
+  buscarCiudad(document.querySelector("#search-input").value);
 });
 
-// const buscarCiudad = () => {
-//   let inputValue = document.querySelector("#buscador").value
-//   let urlBusqueda = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue},&appid=${key}${metricEndPoint}${lang}`
-//   console.log(urlBusqueda)
-// }
-//hacer una función parecida a get city

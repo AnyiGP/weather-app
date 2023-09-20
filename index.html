@@ -22,18 +22,15 @@
     </p>
     <div class="container-fluid row">
       <div class="col-4">
-        <form class="form-inline">
+        <form class="form-inline" id="search-form">
           <input
-            id="buscador"
+            id="search-input"
             class="form-control mr-sm-2"
             name="search"
-            type="search"
+            type="text"
             placeholder="Buscar Ciudad"
             aria-label="Buscar Ciudad"
           />
-          <button class="btn btn-outline-success my-2 my-sm-2" type="submit">
-            Buscar Ciudad
-          </button>
         </form>
         <select
           name="miSelect"
@@ -43,8 +40,9 @@
         >
           <option selected>Provincias</option>
           <option id="Catamarca" value="Catamarca">Catamarca</option>
+          <!-- en cada uno imprimir las provincia que estén guardadas en un objeto -->
           <option value="Mendoza">Mendoza</option>
-          <option value="Jujuy">Jujuy</option>
+          <option value="San Salvador de Jujuy">Jujuy</option>
         </select>
       </div>
     </div>
