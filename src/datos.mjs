@@ -1,40 +1,39 @@
 export const api = {
-    url: "https://api.openweathermap.org/data/2.5/weather?q=",
-    key: "4e5536b1e0f31785b374595576ddf91c",
-    metricEndPoint: "&units=metric",
-    lang: "&lang=es",
-    iconoURL: "https://openweathermap.org/img/wn/",
-    pais: "AR",
-  };
-  
+  url: "https://api.openweathermap.org/data/2.5/weather?q=",
+  key: "4e5536b1e0f31785b374595576ddf91c",
+  metricEndPoint: "&units=metric",
+  lang: "&lang=es",
+  iconoURL: "https://openweathermap.org/img/wn/",
+  pais: "AR",
+};
 
 export const provinciasArgentinaArray = [
-    { value: "Ciudad Autónoma de Buenos Aires", label: "Buenos Aires" },
-    { value: "catamarca", label: "Catamarca" },
-    { value: "chaco", label: "Chaco" },
-    { value: "chubut", label: "Chubut" },
-    { value: "Córdoba", label: "Córdoba" },
-    { value: "corrientes", label: "Corrientes" },
-    { value: "Entre Rios", label: "Entre Ríos" },
-    { value: "formosa", label: "Formosa" },
-    { value: "San Salvador de Jujuy", label: "Jujuy" },
-    { value: "La Pampa", label: "La Pampa" },
-    { value: "La Rioja", label: "La Rioja" },
-    { value: "Mendoza", label: "Mendoza" },
-    { value: "misiones", label: "Misiones" },
-    { value: "neuquén", label: "Neuquén" },
-    { value: "rioNegro", label: "Río Negro" },
-    { value: "salta", label: "Salta" },
-    { value: "San Juan", label: "San Juan" },
-    { value: "san Luis", label: "San Luis" },
-    { value: "Santa Cruz Province", label: "Santa Cruz" },
-    { value: "Santa Fe", label: "Santa Fe" },
-    { value: "Santa Fe", label: "Santiago del Estero" },
-    { value: "tierraDelFuego", label: "Tierra del Fuego" },
-    { value: "Tucumán Province", label: "Tucumán" },
-  ];
+  { value: "Ciudad Autónoma de Buenos Aires", label: "Buenos Aires" },
+  { value: "catamarca", label: "Catamarca" },
+  { value: "chaco", label: "Chaco" },
+  { value: "chubut", label: "Chubut" },
+  { value: "Córdoba", label: "Córdoba" },
+  { value: "corrientes", label: "Corrientes" },
+  { value: "Entre Rios", label: "Entre Ríos" },
+  { value: "formosa", label: "Formosa" },
+  { value: "San Salvador de Jujuy", label: "Jujuy" },
+  { value: "La Pampa", label: "La Pampa" },
+  { value: "La Rioja", label: "La Rioja" },
+  { value: "Mendoza", label: "Mendoza" },
+  { value: "misiones", label: "Misiones" },
+  { value: "neuquén", label: "Neuquén" },
+  { value: "rioNegro", label: "Río Negro" },
+  { value: "salta", label: "Salta" },
+  { value: "San Juan", label: "San Juan" },
+  { value: "san Luis", label: "San Luis" },
+  { value: "Santa Cruz Province", label: "Santa Cruz" },
+  { value: "Santa Fe", label: "Santa Fe" },
+  { value: "Santa Fe", label: "Santiago del Estero" },
+  { value: "tierraDelFuego", label: "Tierra del Fuego" },
+  { value: "Tucumán Province", label: "Tucumán" },
+];
 
-  // const provinciasArgentina = {
+// const provinciasArgentina = {
 //   BuenosAires: {
 //     value: "Ciudad Autónoma de Buenos Aires",
 //     label: "Buenos Aires",
@@ -73,4 +72,45 @@ export const provinciasArgentinaArray = [
 //     miSelect.appendChild(opcion);
 //   }
 // }
+
+export const paisesAmerica = [
+  { value: 'AR', label: 'Argentina' },
+  { value: 'BO', label: 'Bolivia' },
+  { value: 'BR', label: 'Brasil' },
+  { value: 'CA', label: 'Canadá' },
+  { value: 'CL', label: 'Chile' },
+  { value: 'CO', label: 'Colombia' },
+  { value: 'CR', label: 'Costa Rica' },
+  { value: 'CU', label: 'Cuba' },
+  { value: 'DO', label: 'República Dominicana' },
+  { value: 'EC', label: 'Ecuador' },
+  { value: 'SV', label: 'El Salvador' },
+  { value: 'US', label: 'Estados Unidos' },
+  { value: 'GT', label: 'Guatemala' },
+  { value: 'HN', label: 'Honduras' },
+  { value: 'MX', label: 'México' },
+  { value: 'NI', label: 'Nicaragua' },
+  { value: 'PA', label: 'Panamá' },
+  { value: 'PY', label: 'Paraguay' },
+  { value: 'PE', label: 'Perú' },
+  { value: 'PR', label: 'Puerto Rico' },
+  { value: 'UY', label: 'Uruguay' },
+  { value: 'VE', label: 'Venezuela' },
+  { value: 'AG', label: 'Antigua y Barbuda' },
+  { value: 'BS', label: 'Bahamas' },
+  { value: 'BB', label: 'Barbados' },
+  { value: 'BZ', label: 'Belice' },
+  { value: 'DM', label: 'Dominica' },
+  { value: 'GD', label: 'Granada' },
+  { value: 'GY', label: 'Guyana' },
+  { value: 'HT', label: 'Haití' },
+  { value: 'JM', label: 'Jamaica' },
+  { value: 'LC', label: 'Santa Lucía' },
+  { value: 'VC', label: 'San Vicente y las Granadinas' },
+  { value: 'SR', label: 'Surinam' },
+  { value: 'TT', label: 'Trinidad y Tobago' },
+  { value: 'UY', label: 'Uruguay' },
+];
+
+console.log(paisesAmerica);
 

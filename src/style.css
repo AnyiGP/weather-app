@@ -19,3 +19,10 @@ body {
     text-align: center;
 
 }
+
+.myGrid {
+    /* display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; */
+color: white;
+}
