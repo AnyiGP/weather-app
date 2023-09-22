@@ -1,7 +1,12 @@
-import { api, provinciasArgentinaArray, paisesAmerica  } from "./datos.mjs";
-
-
-
+import {
+  api,
+  provinciasArgentinaArray,
+  paisesAmerica,
+  paisesEuropa,
+  paisesAfrica,
+  paisesAsia,
+  paisesOceania
+} from "./datos.mjs";
 
 ////////SELECT DE PROVINCIAS////////
 
@@ -41,24 +46,34 @@ document.querySelector("#search-form").addEventListener("submit", (e) => {
   //ciudad.value = ""
 });
 
-////////SECCIONES CON CONTINENTES, select CON PAISES Y BUSCADOR DE CIUDADES POR PAIS elegido en el select////////
+////////BUSCAR CIUDAD + PAIS////////
 
-////////SELECT AMÉRICA////////
-//pushear los paises de américa al select
-
-const selectAmerica = (ciudadPais, pais) => {
+const buscarCiudadPais = (ciudadPais, pais) => {
   const urlCiudadPais = `${api.url}${ciudadPais},${pais}&appid=${api.key}${api.metricEndPoint}${api.lang}`;
   //  console.log(urlProvincias);
   getCity(urlCiudadPais);
 };
 
-// document.querySelector("#search-ciudad-pais").addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const ciudadPais = document.querySelector("#search-input-ciudad-pais").value;
-//   selectAmerica(ciudadPais);
-//   //ciudad.value = ""
-// });
+////////SELECT AFRICA////////
 
+const mySelectAfrica = document.getElementById("selectPaisesAfrica");
+
+paisesAfrica.forEach((pais) => {
+  const opcion = document.createElement("option");
+  opcion.value = pais.value;
+  opcion.textContent = pais.label;
+  mySelectAfrica.appendChild(opcion);
+});
+
+mySelectAfrica.addEventListener("change", (e) => {
+  e.preventDefault();
+  const pais = e.target.value;
+  //const ciudadPais = "Mendoza"
+  const ciudadPais = document.querySelector("#search-input-ciudad-pais").value;
+  buscarCiudadPais(ciudadPais, pais);
+});
+
+////////SELECT AMÉRICA////////
 
 const mySelectAmerica = document.getElementById("selectPaisesAmerica");
 
@@ -73,24 +88,66 @@ mySelectAmerica.addEventListener("change", (e) => {
   e.preventDefault();
   const pais = e.target.value;
   //const ciudadPais = "Mendoza"
-  const ciudadPais = document.querySelector("#search-input-ciudad-pais").value
-  selectAmerica(ciudadPais, pais);
+  const ciudadPais = document.querySelector("#search-input-ciudad-pais").value;
+  buscarCiudadPais(ciudadPais, pais);
 });
 
-////////BUSCADOR DE CIUDADES POR PAÍSES////////
-//una vez que selecciona el país agregarlo a la parte de la url que tiene el país para que luego al ingresar una ciudad de ese país en el INPUT muestre la temperatura de esa ciudad (por ejemplo mendoza de argentina y mendoza de mexico)
+////////SELECT ASIA////////
 
+const mySelectAsia = document.getElementById("selectPaisesAsia");
 
+paisesAsia.forEach((pais) => {
+  const opcion = document.createElement("option");
+  opcion.value = pais.value;
+  opcion.textContent = pais.label;
+  mySelectAsia.appendChild(opcion);
+});
 
+mySelectAsia.addEventListener("change", (e) => {
+  e.preventDefault();
+  const pais = e.target.value;
+  //const ciudadPais = "Mendoza"
+  const ciudadPais = document.querySelector("#search-input-ciudad-pais").value;
+  buscarCiudadPais(ciudadPais, pais);
+});
 
-////////////////////////////////////////
+////////SELECT EUROPA////////
 
-// const selectPaises = (provincias, pais) => { //provincias.value(Lo que escriba el usuario en el input), pais.value(pais que elija el usuario en el select)
-//   const urlProvincias = `${api.url}${provincias},${pais}&appid=${api.key}${api.metricEndPoint}${api.lang}`;
-//   //  console.log(urlProvincias);
-//   getCity(urlProvincias);
-// };
+const mySelectEuropa = document.getElementById("selectPaisesEuropa");
 
+paisesEuropa.forEach((pais) => {
+  const opcion = document.createElement("option");
+  opcion.value = pais.value;
+  opcion.textContent = pais.label;
+  mySelectEuropa.appendChild(opcion);
+});
+
+mySelectEuropa.addEventListener("change", (e) => {
+  e.preventDefault();
+  const pais = e.target.value;
+  //const ciudadPais = "Mendoza"
+  const ciudadPais = document.querySelector("#search-input-ciudad-pais").value;
+  buscarCiudadPais(ciudadPais, pais);
+});
+
+////////SELECT OCEANIA////////
+
+const mySelectOceania = document.getElementById("selectPaisesOceania");
+
+paisesOceania.forEach((pais) => {
+  const opcion = document.createElement("option");
+  opcion.value = pais.value;
+  opcion.textContent = pais.label;
+  mySelectOceania.appendChild(opcion);
+});
+
+mySelectOceania.addEventListener("change", (e) => {
+  e.preventDefault();
+  const pais = e.target.value;
+  //const ciudadPais = "Mendoza"
+  const ciudadPais = document.querySelector("#search-input-ciudad-pais").value;
+  buscarCiudadPais(ciudadPais, pais);
+});
 
 
 ////////FX OBTENER DATOS////////
@@ -113,7 +170,6 @@ getCity();
 
 //   const urlCiudad = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=4e5536b1e0f31785b374595576ddf91c";
 
-
 // const getCityDirecta = async (urlCiudad) => {
 //   const res = await fetch(urlCiudad);
 //   const data = await res.json();
@@ -130,7 +186,6 @@ getCity();
 
 // console.log(getCityDirecta(urlCiudad));
 
-
 // const countriesList = require("countries-list");
 
 // const paises = Object.entries(countriesList.countries).map(([codigo, nombre]) => ({
@@ -139,4 +194,3 @@ getCity();
 // }));
 
 // console.log(paises);
-
