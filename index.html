@@ -17,8 +17,7 @@
   <body>
     <h1 class="Title">Weather-App</h1>
     <p class="pTitle">
-      Aplicación que sirve para conocer el clima en distintas ciudades del mundo
-      en tiempo real
+      Conoce el clima en distintas ciudades del mundo en tiempo real
     </p>
     <div class="container-fluid row">
       <div class="col-4">
@@ -112,15 +111,29 @@
             América
           </select>
         </div>
-        
       </div>
     </div>
 
-    <!-- <h1>Continentes</h1>
-    <section>
-      <h2>América</h2>
-    <select name="selectPaisesAmerica" id="selectPaisesAmerica" class="form-select" aria-label="Paises de América">América</select>
-  </section> -->
+    <!-- ///////////CONTINENTES CON BTN//////////// -->
+    <div>
+      <button id="btn-america">América</button>
+      <button id="btn-asia">Asia</button>
+      <button id="btn-africa">África</button>
+      <button id="btn-europa">Europa</button>
+      <button id="btn-oceania">Oceanía</button>
+    </div>
+    <div>
+      <select name="paises-continente" id="paises-continente">
+        <!-- <option value=""></option> -->
+      </select>
+      <label for="search-country"></label>
+      <input type="text" name="search-country" id="search-country" />
+      <button id="buscar-ciudad">Buscar</button>
+    </div>
+
+    <h1 id="h1">Que elegí</h1>
+    <!-- ///////////RESULTADOS//////////// -->
+
     <div id="divRow"></div>
   </body>
   <script type="module" src="./src/main.js"></script>
