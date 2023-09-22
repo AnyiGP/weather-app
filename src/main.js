@@ -8,6 +8,21 @@ import {
   paisesOceania
 } from "./datos.mjs";
 
+////////BUSCADOR DE CIUDADES////////
+
+const buscarCiudad = (ciudad) => {
+  const urlCiudad = `${api.url}${ciudad}&appid=${api.key}${api.metricEndPoint}${api.lang}`;
+  console.log(urlCiudad);
+  getCity(urlCiudad);
+};
+
+document.querySelector("#search-form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const ciudad = document.querySelector("#search-input").value;
+  buscarCiudad(ciudad);
+  //ciudad.value = ""
+});
+
 ////////SELECT DE PROVINCIAS////////
 
 const selectProvincias = (provincias) => {
@@ -29,21 +44,6 @@ miSelect.addEventListener("change", (e) => {
   e.preventDefault();
   const provincias = e.target.value;
   selectProvincias(provincias);
-});
-
-////////BUSCADOR DE CIUDADES////////
-
-const buscarCiudad = (ciudad) => {
-  const urlCiudad = `${api.url}${ciudad}&appid=${api.key}${api.metricEndPoint}${api.lang}`;
-  console.log(urlCiudad);
-  getCity(urlCiudad);
-};
-
-document.querySelector("#search-form").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const ciudad = document.querySelector("#search-input").value;
-  buscarCiudad(ciudad);
-  //ciudad.value = ""
 });
 
 ////////BUSCAR CIUDAD + PAIS////////
