@@ -1,28 +1,105 @@
 body {
     background-image: url(./img/bg-02.jpg);
+    color: aliceblue;
 }
+/* 
+.caja-titulo {
+    border-top: 1px aliceblue solid;
+    border-bottom: 1px aliceblue solid ;
+} */
 
 .Title {
+    width: 180px;
+    margin: 20px auto;
+    padding: 5px 0px 5px 0px;
+    border-top: 1px aliceblue solid;
+    border-bottom: 1px aliceblue solid ;
     font-size: 30px;
     font-family: "Oswald";
-    color: rgb(255, 255, 255);
     text-transform: uppercase;
     line-height: 1.2;
     text-align: center;
+  }
+  
+  .ciudad {
+    text-transform: uppercase;
+    margin: 5px;
+    padding: 5px 0px 5px 0px;
+    text-align: start;
+    
+  }
+
+  .pais {
+    margin: 5px;
+    padding: 5px 0px 5px 0px;
+    border-top: 1px aliceblue solid;
+    border-bottom: 1px aliceblue solid;
+    text-align: start;
+    
+  }
+
+  .opcionesDeBusqueda {
+    margin: 5px;
+    padding: 5px 0px 5px 0px;
+    border-top: 1px aliceblue solid;
+    border-bottom: 1px aliceblue solid;
+    text-transform: uppercase;
+    
+    
+  }
+
+  .temperatura {
+    font-size: 90px;
+    font-family: "Oswald";
+    text-transform: uppercase;
+    
+  }
+
+  .icono {
+    margin-left: 0px;
+    /* padding: 10px; */
+  }
+
+  .descripcion {
+    margin: 5px;
+    padding: 5px 0px 5px 0px;
+    border-top: 1px aliceblue solid;
+    border-bottom: 1px aliceblue solid;
+    text-align: start;
   }
  
 .pTitle {
     font-size: 14px;
     font-family: "Montserrat";
-    color: rgb(255, 255, 255);
     line-height: 1.2;
     text-align: center;
 
 }
 
-.myGrid {
-    /* display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; */
-color: white;
+.myDivContainer {
+    margin: 40px 5px 40px 5px;
+    /* padding-left: 0; */
+}
+ 
+.myDiv {
+    margin: 10px 0px;
+}
+
+.mySelect {
+    margin: 0px 0px 0px 20px;
+}
+
+.mySearch {
+    width: 55%;
+    margin: 20px 20px 20px 0px;
+}
+
+.myBtn {
+    width: 15%;
+    margin: 20px 0px 20px 0px;
+}
+
+.myBtn2 {
+    width: 25%;
+    margin: 20px 0px 20px 20px;
 }

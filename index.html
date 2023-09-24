@@ -15,60 +15,168 @@
   </head>
 
   <body>
-    <h1 class="Title">Weather-App</h1>
-    <p class="pTitle">
-      Conoce el clima en distintas ciudades del mundo en tiempo real
-    </p>
-    <div class="container-fluid row">
-      <div class="col-4">
-        <form class="form-inline" id="search-form">
-          <input
-            id="search-input"
-            class="form-control mr-sm-2"
-            name="search"
-            type="text"
-            placeholder="Buscar Ciudad"
-            aria-label="Buscar Ciudad"
-          />
-        </form>
-        <select
-          name="miSelect"
-          id="miSelect"
-          class="form-select"
-          aria-label="Default select example"
-        >
-          Provincias de Argentina
-        </select>
+    <header>
+      <h1 class="Title">Weather-App</h1>
+      <p class="pTitle">
+        Conoce el clima en distintas ciudades del mundo en tiempo real
+      </p>
+    </header>
+    <main>
+      <div class="container text-center">
+        <div class="row">
+          <!-- CARD CLIMA -->
+          <div class="col-sm-4">
+            <div id="divRow">
+              <h3 class="ciudad">Ciudad</h3>
+              <h5 class="pais">País</h5>
+              <div class="d-flex justify-content-between">
+                <div class="container text-center">
+                  <div class="row">
+                    <div class="col">
+                      <img
+                        src="https://openweathermap.org/img/wn/01d@4x.png"
+                        alt=""
+                      />
+                    </div>
+                    <div class="col">
+                      <p class="temperatura">25 ºC</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <p class="descripcion">Descripción</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- OPCIONES DE BÚSQUEDA -->
+          <div class="col-8 myDiv">
+            <h2 class="opcionesDeBusqueda">Opciones de búsqueda</h2>
+            <div class="row myDivContainer">
+              <div class="col-8 col-sm-6 d-inline-flex p-2">
+                <form class="form-inline" id="search-form">
+                  <input
+                    id="search-input"
+                    class="form-control mr-sm-3"
+                    name="search"
+                    type="text"
+                    placeholder="Buscar Ciudad"
+                    aria-label="Buscar Ciudad"
+                    value=""
+                  />
+                </form>
+              </div>
+              <div class="col-4 col-sm-6 d-inline-flex p-2">
+                <select
+                  name="miSelect"
+                  id="miSelect"
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  Provincias de Argentina
+                </select>
+              </div>
+            </div>
+
+            <!-- ///////////CONTINENTES CON BTN//////////// -->
+            <div class="container myDiv d-inline-flex d-flex p-2">
+              <div
+                class="btn-group"
+                role="group"
+                aria-label="Basic outlined example"
+              >
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  id="btn-america"
+                >
+                  América
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  id="btn-asia"
+                >
+                  Asia
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  id="btn-africa"
+                >
+                  Africa
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  id="btn-europa"
+                >
+                  Europa
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  id="btn-oceania"
+                >
+                  Oceanía
+                </button>
+              </div>
+              <select
+                class="form-select mySelect"
+                aria-label="Selecciona un pais del continente"
+                name="paises-continente"
+                id="paises-continente"
+              >
+                <!-- <option selected>Selecciona un país</option> -->
+              </select>
+            </div>
+
+            <!-- BUSCADOR2 -->
+            <div class="row myDiv">
+              <!-- SELECT2 -->
+
+              <div class="d-flex">
+                <label for="search-country"></label>
+                <input
+                  type="text"
+                  class="form-control mySearch"
+                  name="search-country"
+                  id="search-country"
+                  value=""
+                />
+                <button
+                  id="buscar-ciudad"
+                  class="btn btn-outline-primary myBtn"
+                >
+                  Buscar
+                </button>
+                <button
+                  id="nueva-busqueda"
+                  class="btn btn-outline-primary myBtn2"
+                >
+                  Nueva búsqueda
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-    
-    <!-- ///////////CONTINENTES CON BTN//////////// -->
-    <div>
-      <button id="btn-america">América</button>
-      <button id="btn-asia">Asia</button>
-      <button id="btn-africa">África</button>
-      <button id="btn-europa">Europa</button>
-      <button id="btn-oceania">Oceanía</button>
-    </div>
-    <div>
-      <select name="paises-continente" id="paises-continente">
-        <!-- <option value=""></option> -->
-      </select>
-      <label for="search-country"></label>
-      <input type="text" name="search-country" id="search-country" />
-      <button id="buscar-ciudad">Buscar</button>
-      <button id="nueva-busqueda">Nueva búsqueda</button>
-    </div>
 
-    <h1 id="h1">Que elegí</h1>
-    <!-- ///////////RESULTADOS//////////// -->
+      <div class="container-fluid row">
+        <div class="col-6"></div>
+      </div>
 
-    <div id="divRow"></div>
+      <!-- ///////////RESULTADOS//////////// -->
+
+      <div id="divRow2">Div 2</div>
+    </main>
+    <footer>
+      <p>&copy; 2023 weather-app</p>
+    </footer>
   </body>
   <script type="module" src="./src/main.js"></script>
 </html>
-
-
 
 <!-- //////// SELECT CONTINENTES ////////// -->
 <!-- <div class="container-fluid text-center myGrid">

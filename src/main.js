@@ -5,7 +5,7 @@ import {
   paisesEuropa,
   paisesAfrica,
   paisesAsia,
-  paisesOceania
+  paisesOceania,
 } from "./datos.mjs";
 
 ////////BUSCADOR DE CIUDADES////////
@@ -16,11 +16,18 @@ const buscarCiudad = (ciudad) => {
   getCity(urlCiudad);
 };
 
+const buscarCiudad2 = (ciudad) => {
+  const urlCiudad = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad}&limit=5&appid=${api.key}`;
+  console.log(urlCiudad);
+  getCityWorld(urlCiudad); //devuelve un listado de 5 ciudades con el mismo nombre.
+};
+
 document.querySelector("#search-form").addEventListener("submit", (e) => {
   e.preventDefault();
   const ciudad = document.querySelector("#search-input").value;
   buscarCiudad(ciudad);
-  //ciudad.value = ""
+  buscarCiudad2(ciudad);
+  // ciudad.value = ""
 });
 
 ////////SELECT DE PROVINCIAS////////
@@ -48,77 +55,81 @@ miSelect.addEventListener("change", (e) => {
 
 ////////BUSCAR CIUDAD + PAIS CON BOTONES////////
 
-const btn_europa=  document.querySelector("#btn-europa")
-const btn_asia= document.querySelector("#btn-asia")
-const btn_africa= document.querySelector("#btn-africa")
-const btn_oceania= document.querySelector("#btn-oceania")
-const btn_america = document.querySelector("#btn-america")
-const selectorPaises = document.querySelector("#paises-continente")
-const inputCiudad = document.querySelector('#search-country')
-const buscar_ciudad = document.querySelector("#buscar-ciudad")
-const nueva_busqueda = document.querySelector("#nueva-busqueda")
+const btn_europa = document.querySelector("#btn-europa");
+const btn_asia = document.querySelector("#btn-asia");
+const btn_africa = document.querySelector("#btn-africa");
+const btn_oceania = document.querySelector("#btn-oceania");
+const btn_america = document.querySelector("#btn-america");
+const selectorPaises = document.querySelector("#paises-continente");
+const inputCiudad = document.querySelector("#search-country");
+const buscar_ciudad = document.querySelector("#buscar-ciudad");
+const nueva_busqueda = document.querySelector("#nueva-busqueda");
 
 const buscarCiudadPais = (ciudadPais, pais) => {
   const urlCiudadPais = `${api.url}${ciudadPais},${pais}&appid=${api.key}${api.metricEndPoint}${api.lang}`;
   getCity(urlCiudadPais);
-}
+};
 
-btn_africa.addEventListener('click', ()=>{
-  selectorPaises.innerHTML = ""
-  paisesAfrica.map( paises => {
-      selectorPaises.innerHTML += `
+btn_africa.addEventListener("click", () => {
+  selectorPaises.innerHTML = `
+  <option selected>Selecciona un país</option>`;
+  paisesAfrica.map((paises) => {
+    selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
-      `
-  })
-})
+      `;
+  });
+});
 
-btn_europa.addEventListener('click', ()=>{
-  selectorPaises.innerHTML = ""
-  paisesEuropa.map( paises => {
-      selectorPaises.innerHTML += `
+btn_europa.addEventListener("click", () => {
+  selectorPaises.innerHTML = `
+  <option selected>Selecciona un país</option>`;
+  paisesEuropa.map((paises) => {
+    selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
-      `
-  })
-})
+      `;
+  });
+});
 
-btn_america.addEventListener('click', ()=>{
-  selectorPaises.innerHTML = ""
-  paisesAmerica.map( paises => {
-      selectorPaises.innerHTML += `
+btn_america.addEventListener("click", () => {
+  selectorPaises.innerHTML = `
+  <option selected>Selecciona un país</option>`;
+  paisesAmerica.map((paises) => {
+    selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
-      `
-  })
-})
+      `;
+  });
+});
 
-btn_asia.addEventListener('click', ()=>{
-  selectorPaises.innerHTML = ""
-  paisesAsia.map( paises => {
-      selectorPaises.innerHTML += `
+btn_asia.addEventListener("click", () => {
+  selectorPaises.innerHTML = `
+  <option selected>Selecciona un país</option>`;
+  paisesAsia.map((paises) => {
+    selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
-      `
-  })
-})
+      `;
+  });
+});
 
-btn_oceania.addEventListener('click', ()=>{
-  selectorPaises.innerHTML = ""
-  paisesOceania.map( paises => {
-      selectorPaises.innerHTML += `
+btn_oceania.addEventListener("click", () => {
+  selectorPaises.innerHTML = `
+  <option selected>Selecciona un país</option>`;
+  paisesOceania.map((paises) => {
+    selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
-      `
-  })
-})
+      `;
+  });
+});
 
-buscar_ciudad.addEventListener("click", ()=> {
+buscar_ciudad.addEventListener("click", () => {
   // console.log(inputCiudad.value, selectorPaises.value)
   //inputCiudad.innerHTML = ""
-  buscarCiudadPais(inputCiudad.value, selectorPaises.value)
-})
+  buscarCiudadPais(inputCiudad.value, selectorPaises.value);
+});
 
 nueva_busqueda.addEventListener("click", () => {
-   inputCiudad.innerHTML = ""
-   selectorPaises.innerHTML = ""
-})
-
+  inputCiudad.innerHTML = "";
+  selectorPaises.innerHTML = `<option selected>Selecciona un país</option>`;
+});
 
 //try catch//
 /////hacer que cuando no encuentre la ciudad o tenga un error salga un alert
@@ -146,8 +157,72 @@ const getCity = async (url) => {
 
 getCity();
 
-const urlCiudad = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=4e5536b1e0f31785b374595576ddf91c";
-console.log(urlCiudad)
+//////////////////////////////////////////////////
+// const getCity = async (url) => {
+//   const res = await fetch(url);
+//   const data = await res.json();
+
+//   let row = document.getElementById("divRow");
+//   row.innerHTML = "";
+
+
+//   // Filtra las ciudades con el mismo nombre
+//   const citiesWithSameName = data.filter(data => data.name === cityName);
+
+//   // Recorre las ciudades filtradas y muestra su información
+//   citiesWithSameName.forEach(city => {
+//     let icono = city.weather[0].icon;
+//     row.innerHTML += `<img src="${api.iconoURL}${icono}@4x.png" alt="">
+//       <p class="pTitle">${city.name}</p>
+//       <p class="pTitle">${city.main.temp}</p>
+//       <p class="pTitle">${city.sys.country}</p>
+//       <p class="pTitle">${city.weather[0].description}</p>`;
+//   });
+// };
+
+// // Llama a la función con la URL de la API y el nombre de la ciudad deseado
+// //getCity("URL_DE_TU_API_AQUI", "NOMBRE_DE_LA_CIUDAD");
+
+// getCity();
+
+
+// const getCity = async (url) => {
+//   const res = await fetch(url);
+//   const data = await res.json();
+//   //const city = data.result
+//   let icono = data.weather[0].icon;
+//   let row = document.getElementById("divRow");
+//   row.innerHTML = "";
+//   return (row.innerHTML += `<img src="${api.iconoURL}${icono}@4x.png" alt="">
+//     <p class="pTitle">${data.name}</p>
+//     <p class="pTitle">${data.main.temp}</p>
+//     <p class="pTitle">${data.sys.country}</p>
+//     <p class="pTitle">${data.weather[0].description}</p>`);
+// };
+
+// getCity();
+
+const getCityWorld = async (url) => {
+  const res = await fetch(url);
+  const data = await res.json();
+  //const city = data.result
+  // console.log(city)
+  let row = document.getElementById("divRow2");
+  row.innerHTML = "";
+  for (let i = 0; i < 5; i++) {
+    const objeto = data[i];
+    row.innerHTML += `
+    <p class="pTitle">${objeto.name}</p>
+    <p class="pTitle">${objeto.country}</p>
+    <p class="pTitle">${objeto.state}</p>
+  `;
+  }
+};
+
+getCityWorld();
+
+//const urlCiudad = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=4e5536b1e0f31785b374595576ddf91c";
+//console.log(urlCiudad)
 
 // const getCityDirecta = async (urlCiudad) => {
 //   const res = await fetch(urlCiudad);
