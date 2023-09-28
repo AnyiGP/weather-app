@@ -22,16 +22,19 @@
       </p>
     </header>
     <main>
-      <div class="container text-center">
-        <div class="row">
+      <div class="container-fluid text-center">
+        <div class="row d-flex justify-content-between">
           <!-- CARD CLIMA -->
-          <div class="col-sm-4">
+          <div
+            class="col-sm-4 fondoDiv"
+            style="margin-left: 0px; margin-right: 10px"
+          >
             <div id="divRow">
               <h3 class="ciudad">Ciudad</h3>
               <h5 class="pais">País</h5>
-              <div class="d-flex justify-content-between">
-                <div class="container text-center">
-                  <div class="row">
+              <div>
+                <div class="container-fluid text-center">
+                  <div class="row d-flex flex-column">
                     <div class="col">
                       <img
                         src="https://openweathermap.org/img/wn/01d@4x.png"
@@ -51,33 +54,36 @@
           </div>
 
           <!-- OPCIONES DE BÚSQUEDA -->
-          <div class="col-8 myDiv">
+          <div class="col-sm-7">
             <h2 class="opcionesDeBusqueda">Opciones de búsqueda</h2>
             <div class="row myDivContainer">
-              <div class="col-8 col-sm-6 d-inline-flex p-2">
-                <form class="form-inline" id="search-form">
+              <!-- INPUT BUSCAR PAIS -->
+              <div class="col-8 col-sm-6 d-inline-flex p-2 fondoDiv" >
+                <!-- <label id="search-form" for=""></label> -->
+                <form class="form-inline" style="width: 100%" id="search-form">
                   <input
                     id="search-input"
                     class="form-control mr-sm-3"
                     name="search"
                     type="text"
-                    placeholder="Buscar Ciudad"
+                    placeholder="Buscar Ciudad del mundo"
                     aria-label="Buscar Ciudad"
                     value=""
                   />
                 </form>
               </div>
+              
               <div class="col-4 col-sm-6 d-inline-flex p-2">
                 <select
                   name="miSelect"
                   id="miSelect"
                   class="form-select"
                   aria-label="Default select example"
-                >
-                  Provincias de Argentina
-                </select>
+                ></select>
               </div>
             </div>
+
+            BUSCAR POR PAÍS Y CIUDAD
 
             <!-- ///////////CONTINENTES CON BTN//////////// -->
             <div class="container myDiv d-inline-flex d-flex p-2">
@@ -128,7 +134,7 @@
                 name="paises-continente"
                 id="paises-continente"
               >
-                <!-- <option selected>Selecciona un país</option> -->
+                <option selected>Selecciona un país</option>
               </select>
             </div>
 
@@ -143,7 +149,8 @@
                   class="form-control mySearch"
                   name="search-country"
                   id="search-country"
-                  value=""
+                  placeholder="Buscar una ciudad del país elegido"
+                  
                 />
                 <button
                   id="buscar-ciudad"
@@ -166,13 +173,14 @@
       <div class="container-fluid row">
         <div class="col-6"></div>
       </div>
+      <div id="my-toast"></div>
 
       <!-- ///////////RESULTADOS//////////// -->
 
       <div id="divRow2">Div 2</div>
     </main>
     <footer>
-      <p>&copy; 2023 weather-app</p>
+      <p style="text-align: center">&copy; 2023 weather-app</p>
     </footer>
   </body>
   <script type="module" src="./src/main.js"></script>

@@ -1,6 +1,8 @@
 body {
-    background-image: url(./img/bg-02.jpg);
-    color: aliceblue;
+  background-image: url(./img/bg-02.jpg);
+  color: aliceblue;
+  margin: 30px;
+  padding: 10px;
 }
 /* 
 .caja-titulo {
@@ -9,97 +11,102 @@ body {
 } */
 
 .Title {
-    width: 180px;
-    margin: 20px auto;
-    padding: 5px 0px 5px 0px;
-    border-top: 1px aliceblue solid;
-    border-bottom: 1px aliceblue solid ;
-    font-size: 30px;
-    font-family: "Oswald";
-    text-transform: uppercase;
-    line-height: 1.2;
-    text-align: center;
-  }
-  
-  .ciudad {
-    text-transform: uppercase;
-    margin: 5px;
-    padding: 5px 0px 5px 0px;
-    text-align: start;
-    
-  }
+  width: 180px;
+  margin: 20px auto;
+  padding: 5px 0px 5px 0px;
+  border-top: 0.5px aliceblue solid;
+  border-bottom: 0.5px aliceblue solid;
+  font-size: 30px;
+  font-family: "Oswald";
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center;
+}
 
-  .pais {
-    margin: 5px;
-    padding: 5px 0px 5px 0px;
-    border-top: 1px aliceblue solid;
-    border-bottom: 1px aliceblue solid;
-    text-align: start;
-    
-  }
+.ciudad {
+  text-transform: uppercase;
+  margin: 5px;
+  padding: 5px 0px 5px 0px;
+  text-align: start;
+}
 
-  .opcionesDeBusqueda {
-    margin: 5px;
-    padding: 5px 0px 5px 0px;
-    border-top: 1px aliceblue solid;
-    border-bottom: 1px aliceblue solid;
-    text-transform: uppercase;
-    
-    
-  }
+.pais {
+  margin: 5px;
+  padding: 5px 0px 5px 0px;
+  border-top: 1px aliceblue solid;
+  border-bottom: 1px aliceblue solid;
+  text-align: start;
+}
 
-  .temperatura {
-    font-size: 90px;
-    font-family: "Oswald";
-    text-transform: uppercase;
-    
-  }
+.opcionesDeBusqueda {
+  margin: 5px;
+  padding: 5px 0px 5px 0px;
+  border-top: 1px aliceblue solid;
+  border-bottom: 1px aliceblue solid;
+  text-transform: uppercase;
+}
 
-  .icono {
-    margin-left: 0px;
-    /* padding: 10px; */
-  }
+.temperatura {
+  font-size: 80px;
+  font-family: "Oswald";
+  text-transform: uppercase;
+}
 
-  .descripcion {
-    margin: 5px;
-    padding: 5px 0px 5px 0px;
-    border-top: 1px aliceblue solid;
-    border-bottom: 1px aliceblue solid;
-    text-align: start;
-  }
- 
+.icono {
+  margin-left: 0px;
+  /* padding: 10px; */
+}
+
+.descripcion {
+  margin: 5px;
+  padding: 5px 0px 5px 0px;
+  border-top: 0.5px aliceblue solid;
+  border-bottom: 0.5px aliceblue solid;
+  text-align: start;
+}
+
 .pTitle {
-    font-size: 14px;
-    font-family: "Montserrat";
-    line-height: 1.2;
-    text-align: center;
-
+  font-size: 14px;
+  font-family: "Montserrat";
+  line-height: 1.2;
+  text-align: center;
 }
 
 .myDivContainer {
-    margin: 40px 5px 40px 5px;
-    /* padding-left: 0; */
+  margin: 40px 5px 40px 5px;
+  /* padding-left: 0; */
 }
- 
+
 .myDiv {
-    margin: 10px 0px;
+  margin: 10px 0px;
 }
 
 .mySelect {
-    margin: 0px 0px 0px 20px;
+  margin: 0px 0px 0px 20px;
 }
 
 .mySearch {
-    width: 55%;
-    margin: 20px 20px 20px 0px;
+  width: 55%;
+  margin: 20px 20px 20px 0px;
 }
 
 .myBtn {
-    width: 15%;
-    margin: 20px 0px 20px 0px;
+  width: 15%;
+  margin: 20px 0px 20px 0px;
 }
 
 .myBtn2 {
-    width: 25%;
-    margin: 20px 0px 20px 20px;
+  width: 25%;
+  margin: 20px 0px 20px 20px;
 }
+
+.fondoDiv {
+    padding: 40px;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.096) 0%, #ffffff33 100%);
+    border-radius: 10px;
+}
+
+
+
+
+

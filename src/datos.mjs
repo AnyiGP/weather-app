@@ -8,6 +8,7 @@ export const api = {
 };
 
 export const provinciasArgentinaArray = [
+  { value: "Provincias de Argentina", label: "Provincias de Argentina" },
   { value: "Ciudad Autónoma de Buenos Aires", label: "Buenos Aires" },
   { value: "catamarca", label: "Catamarca" },
   { value: "chaco", label: "Chaco" },
@@ -33,7 +34,7 @@ export const provinciasArgentinaArray = [
   { value: "Tucumán Province", label: "Tucumán" },
 ];
 
-export const paisesAfrica = [
+export const paisesAfrica = [ 
   { value: "DZ", label: "Argelia" },
   { value: "AO", label: "Angola" },
   { value: "BJ", label: "Benín" },
