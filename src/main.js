@@ -12,14 +12,14 @@ import {
 
 const buscarCiudad = (ciudad) => {
   const urlCiudad = `${api.url}${ciudad}&appid=${api.key}${api.metricEndPoint}${api.lang}`;
-  console.log(urlCiudad);
+  //console.log(urlCiudad);
   getCity(urlCiudad);
 };
 
 const buscarCiudad2 = (ciudad) => {
-  const urlCiudad = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad}&limit=5&appid=${api.key}`;
-  console.log(urlCiudad);
-  getCityWorld(urlCiudad); //devuelve un listado de 5 ciudades con el mismo nombre.
+  const urlCiudad2 = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad}&limit=5&appid=${api.key}`;
+ // console.log(urlCiudad);
+  getCityWorld(urlCiudad2); //devuelve un listado de 5 ciudades con el mismo nombre.
 };
 
 document.querySelector("#search-form").addEventListener("submit", (e) => {
@@ -141,100 +141,101 @@ nueva_busqueda.addEventListener("click", () => {
 
 ////////FX OBTENER DATOS////////
 
+///////////////////APARECE EL ALERT DESDE EL PRINCIPIO, COMO SI TIRARA ERROR DESDE EL PRINCIPIO, GET CITY VA A BUSCAR PRIMERO Y NO ENCUENTRA NADA Y SALE EL ALERT Y LUEGO PASA LO MISMO SI EL USUARIO ESCRIBE MAL LA CIUDAD/////////////////////////
+
+/////////////////////////que se imprima por defecto una ciudad desde el principio paraevitar el primr error
+
 const getCity = async (url) => {
-  const res = await fetch(url);
-  const data = await res.json();
-  //const city = data.result
-  let icono = data.weather[0].icon;
-  let row = document.getElementById("divRow");
-  row.innerHTML = "";
-  return (row.innerHTML +=
-    `
-    <h3 class="ciudad">${data.name}</h3>
-              <h5 class="pais">País: ${data.sys.country}</h5>
-              <div class="d-flex justify-content-between">
-                <div class="container text-center">
-                  <div class="row">
-                    <div class="col">
-                      <img
-                      src="${api.iconoURL}${icono}@4x.png" alt=""
-                      />
-                    </div>
-                    <div class="col">
-                      <p class="temperatura">${data.main.temp} ºC</p>
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      throw new Error("No se pudo obtener la información de la ciudad");
+    }
+
+    const data = await res.json();
+    //const city = data.result
+    let icono = data.weather[0].icon;
+    let row = document.getElementById("divRow");
+    row.innerHTML = "";
+    return (row.innerHTML += `
+      <h3 class="ciudad">${data.name}</h3>
+                <h5 class="pais">País: ${data.sys.country}</h5>
+                <div class="d-flex justify-content-between">
+                  <div class="container text-center">
+                    <div class="row">
+                      <div class="col">
+                        <img
+                        src="${api.iconoURL}${icono}@4x.png" alt=""
+                        />
+                      </div>
+                      <div class="col">
+                        <p class="temperatura">${data.main.temp} ºC</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div>
-                <p class="descripcion">Descripción: ${data.weather[0].description}</p>
-              </div>
-
-    `);
+                <div>
+                  <p class="descripcion">Descripción: ${data.weather[0].description}</p>
+                </div>
+      `);
+  } catch (error) {
+    // console.error("Error:", error);
+    alert("Prueba agregando el nombre completo de la ciudad");
+  }
 };
 
-getCity();
+// Llama a la función getCity con la URL deseada
+//getCity();
 
-///////////////////APARECE EL ALERT DESDE EL PRINCIPIO, COMO SI TIRARA ERROR DESDE EL PRINCIPIO, GET CITY VA A BUSCAR PRIMERO Y NO ENCUENTRA NADA Y SALE EL ALERT Y LUEGO PASA LO MISMO SI EL USUARIO ESCRIBE MAL LA CIUDAD/////////////////////////
 
-// const getCity = async (url) => {
-//   try {
-//     const res = await fetch(url);
-//     if (!res.ok) {
-//       throw new Error("No se pudo obtener la información de la ciudad");
-//     }
+// TOAST
+//     document.getElementById("my-toast").innerHTML += `
+    //     <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+    //   <div class="d-flex">
+    //     <div class="toast-body">
+    //     Prueba agregando el nombre completo de la ciudad
+    //     </div>
+    //     <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    //   </div>
+    // </div>`
+    
+    ////////////////FX OK GET CITY SIN TRY CATCH//////////////
 
-//     const data = await res.json();
-//     //const city = data.result
-//     let icono = data.weather[0].icon;
-//     let row = document.getElementById("divRow");
-//     row.innerHTML = "";
-//     return (row.innerHTML += `
-//       <h3 class="ciudad">${data.name}</h3>
-//                 <h5 class="pais">País: ${data.sys.country}</h5>
-//                 <div class="d-flex justify-content-between">
-//                   <div class="container text-center">
-//                     <div class="row">
-//                       <div class="col">
-//                         <img
-//                         src="${api.iconoURL}${icono}@4x.png" alt=""
-//                         />
-//                       </div>
-//                       <div class="col">
-//                         <p class="temperatura">${data.main.temp} ºC</p>
-//                       </div>
+    // const getCity = async (url) => {
+//   const res = await fetch(url);
+//   const data = await res.json();
+//   //const city = data.result
+//   let icono = data.weather[0].icon;
+//   let row = document.getElementById("divRow");
+//   row.innerHTML = "";
+//   return (row.innerHTML +=
+//     `
+//     <h3 class="ciudad">${data.name}</h3>
+//               <h5 class="pais">País: ${data.sys.country}</h5>
+//               <div class="d-flex justify-content-between">
+//                 <div class="container text-center">
+//                   <div class="row">
+//                     <div class="col">
+//                       <img
+//                       src="${api.iconoURL}${icono}@4x.png" alt=""
+//                       />
+//                     </div>
+//                     <div class="col">
+//                       <p class="temperatura">${data.main.temp} ºC</p>
 //                     </div>
 //                   </div>
 //                 </div>
-//                 <div>
-//                   <p class="descripcion">Descripción: ${data.weather[0].description}</p>
-//                 </div>
-//       `);
-//   } catch (error) {
-//     //     document.getElementById("my-toast").innerHTML += `
-//     //     <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
-//     //   <div class="d-flex">
-//     //     <div class="toast-body">
-//     //     Prueba agregando el nombre completo de la ciudad
-//     //     </div>
-//     //     <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-//     //   </div>
-//     // </div>`
-//     // console.error("Error:", error);
-//     alert("Prueba agregando el nombre completo de la ciudad");
-//   }
+//               </div>
+//               <div>
+//                 <p class="descripcion">Descripción: ${data.weather[0].description}</p>
+//               </div>
+
+//     `);
 // };
 
-// // Llama a la función getCity con la URL deseada
 // getCity();
 
-{
-  /* TEMPLETA ORIGINAL <img src="${api.iconoURL}${icono}@4x.png" alt="">
-<p class="pTitle">${data.name}</p>
-<p class="pTitle">${data.main.temp}</p>
-<p class="pTitle">${data.sys.country}</p>
-<p class="pTitle">${data.weather[0].description}</p> */
-}
+
 //////////////////////////////////////////////////
 // const getCity = async (url) => {
 //   const res = await fetch(url);
@@ -260,24 +261,6 @@ getCity();
 // // Llama a la función con la URL de la API y el nombre de la ciudad deseado
 // //getCity("URL_DE_TU_API_AQUI", "NOMBRE_DE_LA_CIUDAD");
 
-// getCity();
-
-// const getCity = async (url) => {
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   //const city = data.result
-//   let icono = data.weather[0].icon;
-//   let row = document.getElementById("divRow");
-//   row.innerHTML = "";
-//   return (row.innerHTML += `<img src="${api.iconoURL}${icono}@4x.png" alt="">
-//     <p class="pTitle">${data.name}</p>
-//     <p class="pTitle">${data.main.temp}</p>
-//     <p class="pTitle">${data.sys.country}</p>
-//     <p class="pTitle">${data.weather[0].description}</p>`);
-// };
-
-// getCity();
-
 const getCityWorld = async (url) => {
   const res = await fetch(url);
   const data = await res.json();
@@ -295,7 +278,7 @@ const getCityWorld = async (url) => {
   }
 };
 
-getCityWorld();
+//getCityWorld();
 
 //const urlCiudad = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=4e5536b1e0f31785b374595576ddf91c";
 //console.log(urlCiudad)
