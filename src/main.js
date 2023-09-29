@@ -216,7 +216,7 @@ const getCity = async (url) => {
       `);
   } catch (error) {
     // console.error("Error:", error);
-    alert("Prueba agregando el nombre completo de la ciudad");
+    alert("Corrige el nombre o prueba agregando el nombre completo de la ciudad");
   }
 };
 
