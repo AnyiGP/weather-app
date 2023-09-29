@@ -8,7 +8,7 @@ export const api = {
 };
 
 export const provinciasArgentinaArray = [
-  { value: "Provincias de Argentina", label: "Provincias de Argentina" },
+  { value: "Provincias de Argentina", label: "Buscar por Provincias de Argentina" },
   { value: "Ciudad Autónoma de Buenos Aires", label: "Buenos Aires" },
   { value: "catamarca", label: "Catamarca" },
   { value: "chaco", label: "Chaco" },

@@ -156,14 +156,15 @@ const getCity = async (url) => {
     let row = document.getElementById("divRow");
     row.innerHTML = "";
     return (row.innerHTML += `
-      <h3 class="ciudad">${data.name}</h3>
-                <h5 class="pais">País: ${data.sys.country}</h5>
-                <p>Fecha ${new Date(data.dt * 1000)}</p>
-                <div class="d-flex justify-content-between">
-                  <div class="container text-center">
-                    <div class="row">
-                      <div class="col">
-                        <img
+      
+    <h3 class="ciudad">${data.name}, ${data.sys.country}</h3>
+    <p class="fecha">Fecha: ${new Date(data.dt * 1000)}</p>
+                  
+    <div>
+                <div class="container-fluid text-center">
+                  <div class="row d-flex flex-column">
+                    <div class="col" style="margin-top: -30px;">
+                                  <img
                         src="${api.iconoURL}${icono}@4x.png" alt=""
                         />
                       </div>
@@ -173,7 +174,9 @@ const getCity = async (url) => {
 
                       <div class="container text-center">
                       <div class="row justify-content-md-center">
-                        <div class="col col-lg-12">Sensación Térmica ${data.main.feels_like}
+                        <div class="col col-lg-12" style="margin-bottom: 10px;">Sensación Térmica ${
+                          data.main.feels_like
+                        } ºC
                         </div>
                       </div>
                       </div>
@@ -181,10 +184,10 @@ const getCity = async (url) => {
                       <!-- MIN Y MAX -->
                       <div class="container text-center">
                       <div class="row justify-content-md-center">
-                        <div class="col col-lg-6">
+                        <div class="col col-lg-6 miniDiv">
                           MIN ${data.main.temp_min}
                         </div>
-                        <div class="col col-lg-6">
+                        <div class="col col-lg-6 miniDiv">
                           MAX ${data.main.temp_max}
                         </div>
                       </div>
@@ -193,8 +196,12 @@ const getCity = async (url) => {
                     <!-- VIENTO Y HUMEDAD -->
                     <div class="container text-center">
                       <div class="row justify-content-md-center">
-                        <div class="col col-lg-6">Viento ${data.wind.speed}km/h </div>
-                        <div class="col col-lg-6">Humedad ${data.main.humidity}%</div>
+                        <div class="col col-lg-6 miniDiv">Viento ${Math.ceil
+                          (data.wind.speed)
+                        }km/h </div>
+                        <div class="col col-lg-6 miniDiv">Humedad ${
+                          data.main.humidity
+                        }%</div>
                       </div>
                     </div>
 

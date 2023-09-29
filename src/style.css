@@ -3,6 +3,7 @@ body {
   color: aliceblue;
   margin: 30px;
   padding: 10px;
+  font-family: "Oswald";
 }
 /* 
 .caja-titulo {
@@ -11,12 +12,12 @@ body {
 } */
 
 .Title {
-  width: 180px;
-  margin: 20px auto;
-  padding: 5px 0px 5px 0px;
+  width: auto;
+  /* margin: 20px auto; */
+  padding: 10px 0px 10px 0px;
   border-top: 0.5px aliceblue solid;
   border-bottom: 0.5px aliceblue solid;
-  font-size: 30px;
+  font-size: 60px;
   font-family: "Oswald";
   text-transform: uppercase;
   line-height: 1.2;
@@ -30,7 +31,7 @@ body {
   text-align: start;
 }
 
-.pais {
+.fecha {
   margin: 5px;
   padding: 5px 0px 5px 0px;
   border-top: 1px aliceblue solid;
@@ -39,14 +40,14 @@ body {
 }
 
 .opcionesDeBusqueda {
-  margin: 5px;
-  padding: 5px 0px 5px 0px;
-  border-top: 1px aliceblue solid;
-  border-bottom: 1px aliceblue solid;
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
   text-transform: uppercase;
 }
 
 .temperatura {
+    margin-top: -50px;
+    margin-bottom: 0px;
   font-size: 80px;
   font-family: "Oswald";
   text-transform: uppercase;
@@ -55,6 +56,14 @@ body {
 .icono {
   margin-left: 0px;
   /* padding: 10px; */
+}
+
+.miniDiv {
+    background-color: #ffffff33;
+    border-radius: 3px;
+    width:130px;
+    padding: 5px 10px;
+    margin: 10px;
 }
 
 .descripcion {
@@ -66,6 +75,7 @@ body {
 }
 
 .pTitle {
+    padding: 10px 0px 20px 0px;
   font-size: 14px;
   font-family: "Montserrat";
   line-height: 1.2;
@@ -86,17 +96,20 @@ body {
 }
 
 .mySearch {
-  width: 55%;
+  width: 52%;
+  height: 40px;
   margin: 20px 20px 20px 0px;
 }
 
 .myBtn {
   width: 15%;
+  height: 40px;
   margin: 20px 0px 20px 0px;
 }
 
 .myBtn2 {
-  width: 25%;
+  width: 28%;
+  height: 40px;
   margin: 20px 0px 20px 20px;
 }
 
@@ -105,6 +118,8 @@ body {
     background: linear-gradient(0deg, rgba(255, 255, 255, 0.096) 0%, #ffffff33 100%);
     border-radius: 10px;
 }
+
+
 
 
 

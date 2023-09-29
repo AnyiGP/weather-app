@@ -15,10 +15,10 @@
   </head>
 
   <body>
-    <header>
+    <header class="container-fluid text-center">
       <h1 class="Title">Weather-App</h1>
       <p class="pTitle">
-        Conoce el clima en distintas ciudades del mundo en tiempo real
+        Conoce el clima de distintas ciudades del mundo en tiempo real
       </p>
     </header>
     <main>
@@ -30,13 +30,14 @@
             style="margin-left: 0px; margin-right: 10px"
           >
             <div id="divRow">
-              <h3 class="ciudad" value="Mendoza">Ciudad</h3>
-              <h5 class="pais" value="AR">País</h5>
-              <h5 class="pais">Fecha</h5>
+              <h3 class="ciudad" value="Mendoza">Ciudad, País</h3>
+              <h5 class="fecha">Fecha</h5>
+
+              <!-- <h5 class="pais" value="AR">País</h5> -->
               <div>
                 <div class="container-fluid text-center">
                   <div class="row d-flex flex-column">
-                    <div class="col">
+                    <div class="col" style="margin-top: -30px">
                       <img
                         src="https://openweathermap.org/img/wn/01d@4x.png"
                         alt=""
@@ -47,39 +48,44 @@
                     </div>
                     <div class="container text-center">
                       <div class="row justify-content-md-center">
-                        <div class="col col-lg-12">Sensación Térmica 25ºC</div>
+                        <div class="col col-lg-12" style="margin-bottom: 10px">
+                          Sensación Térmica 25ºC
+                        </div>
                       </div>
                     </div>
-                    
+
                     <!-- MIN Y MAX -->
                     <div class="container text-center">
                       <div class="row justify-content-md-center">
-                        <div class="col col-lg-6">MIN 12ºC</div>
-                        <div class="col col-lg-6">MAX 29ºC</div>
+                        <div class="col col-lg-6 miniDiv">MIN 12ºC</div>
+                        <div class="col col-lg-6 miniDiv">MAX 29ºC</div>
                       </div>
                     </div>
                     <!-- VIENTO Y HUMEDAD -->
                     <div class="container text-center">
                       <div class="row justify-content-md-center">
-                        <div class="col col-lg-6">Viento 15km/h </div>
-                        <div class="col col-lg-6">Humedad 18%</div>
+                        <div class="col col-lg-6 miniDiv">Viento 15km/h</div>
+                        <div class="col col-lg-6 miniDiv">Humedad 18%</div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div>
-                <p class="descripcion">Descripción</p>
+                <p class="descripcion" style="margin-top: 20px;">Descripción</p>
               </div>
             </div>
           </div>
 
           <!-- OPCIONES DE BÚSQUEDA -->
           <div class="col-sm-7">
-            <h2 class="opcionesDeBusqueda">Opciones de búsqueda</h2>
-            <div class="row myDivContainer">
+            <div class="container-fluid fondoDiv">
+              <h2 class="opcionesDeBusqueda">Opciones de búsqueda</h2>
+            </div>
+
+            <div class="row myDivContainer fondoDiv d-flex justify-content-between">
               <!-- INPUT BUSCAR PAIS -->
-              <div class="col-8 col-sm-6 d-inline-flex p-2 fondoDiv">
+              <div class="col-8 col-sm-5 d-inline-flex p-2 fondoDiv">
                 <!-- <label id="search-form" for=""></label> -->
                 <form class="form-inline" style="width: 100%" id="search-form">
                   <input
@@ -87,103 +93,105 @@
                     class="form-control mr-sm-3"
                     name="search"
                     type="text"
-                    placeholder="Buscar Ciudad del mundo"
+                    placeholder="Buscar por Ciudad del mundo"
                     aria-label="Buscar Ciudad"
                     value=""
                   />
                 </form>
               </div>
 
-              <div class="col-4 col-sm-6 d-inline-flex p-2">
+              <div class="col-4 col-sm-6 d-inline-flex p-2 fondoDiv">
                 <select
                   name="miSelect"
                   id="miSelect"
                   class="form-select"
-                  aria-label="Default select example"
+                  aria-label="Selecciona una provincia de argentina"
                 ></select>
               </div>
             </div>
 
-            BUSCAR POR PAÍS Y CIUDAD
+            <div class="container-fluid fondoDiv">
+              <h3>BUSCAR POR PAÍS Y CIUDAD</h3>
 
-            <!-- ///////////CONTINENTES CON BTN//////////// -->
-            <div class="container myDiv d-inline-flex d-flex p-2">
-              <div
-                class="btn-group"
-                role="group"
-                aria-label="Basic outlined example"
-              >
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  id="btn-america"
+              <!-- ///////////CONTINENTES CON BTN//////////// -->
+              <div class="container myDiv d-inline-flex d-flex p-2">
+                <div
+                  class="btn-group"
+                  role="group"
+                  aria-label="Basic outlined example"
                 >
-                  América
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  id="btn-asia"
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    id="btn-america"
+                  >
+                    América
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    id="btn-asia"
+                  >
+                    Asia
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    id="btn-africa"
+                  >
+                    Africa
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    id="btn-europa"
+                  >
+                    Europa
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary"
+                    id="btn-oceania"
+                  >
+                    Oceanía
+                  </button>
+                </div>
+                <select
+                  class="form-select mySelect"
+                  aria-label="Selecciona un pais del continente"
+                  name="paises-continente"
+                  id="paises-continente"
                 >
-                  Asia
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  id="btn-africa"
-                >
-                  Africa
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  id="btn-europa"
-                >
-                  Europa
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                  id="btn-oceania"
-                >
-                  Oceanía
-                </button>
+                  <option selected>Selecciona un país</option>
+                </select>
               </div>
-              <select
-                class="form-select mySelect"
-                aria-label="Selecciona un pais del continente"
-                name="paises-continente"
-                id="paises-continente"
-              >
-                <option selected>Selecciona un país</option>
-              </select>
-            </div>
 
-            <!-- BUSCADOR2 -->
-            <div class="row myDiv">
-              <!-- SELECT2 -->
+              <!-- BUSCADOR2 -->
+              <div class="row myDiv">
+                <!-- SELECT2 -->
 
-              <div class="d-flex">
-                <label for="search-country"></label>
-                <input
-                  type="text"
-                  class="form-control mySearch"
-                  name="search-country"
-                  id="search-country"
-                  placeholder="Buscar una ciudad del país elegido"
-                />
-                <button
-                  id="buscar-ciudad"
-                  class="btn btn-outline-primary myBtn"
-                >
-                  Buscar
-                </button>
-                <button
-                  id="nueva-busqueda"
-                  class="btn btn-outline-primary myBtn2"
-                >
-                  Nueva búsqueda
-                </button>
+                <div class="d-flex">
+                  <label for="search-country"></label>
+                  <input
+                    type="text"
+                    class="form-control mySearch"
+                    name="search-country"
+                    id="search-country"
+                    placeholder="Buscar una ciudad del país elegido"
+                  />
+                  <button
+                    id="buscar-ciudad"
+                    class="btn btn-outline-primary myBtn"
+                  >
+                    Buscar
+                  </button>
+                  <button
+                    id="nueva-busqueda"
+                    class="btn btn-outline-primary myBtn2"
+                  >
+                    Nueva búsqueda
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -197,10 +205,10 @@
 
       <!-- ///////////RESULTADOS//////////// -->
 
-      <div id="divRow2">Div 2</div>
+      <!-- <div id="divRow2">Div 2</div> -->
     </main>
     <footer>
-      <p style="text-align: center">&copy; 2023 weather-app</p>
+      <p style="text-align: center; margin-top: 20px;">&copy; 2023 - Weather-App - Ángeles Godoy</p>
     </footer>
   </body>
   <script type="module" src="./src/main.js"></script>
