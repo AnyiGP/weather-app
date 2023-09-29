@@ -136,17 +136,9 @@ buscar_ciudad.addEventListener("click", () => {
   }
 });
 
-//////FUNCION BUSCAR ANTERIOR QUE FUNCIONA////////////
-
-// buscar_ciudad.addEventListener("click", () => {
-//   // console.log(inputCiudad.value, selectorPaises.value)
-//   //inputCiudad.innerHTML = ""
-//   buscarCiudadPais(inputCiudad.value, selectorPaises.value);
-// });
-
 nueva_busqueda.addEventListener("click", () => {
-  inputCiudad.innerHTML = `ME lo invento`;
   selectorPaises.innerHTML = `<option selected>Selecciona un país</option>`;
+  inputCiudad.innerHTML = "";
 });
 
 ////////FX OBTENER DATOS////////
@@ -166,6 +158,7 @@ const getCity = async (url) => {
     return (row.innerHTML += `
       <h3 class="ciudad">${data.name}</h3>
                 <h5 class="pais">País: ${data.sys.country}</h5>
+                <p>Fecha ${new Date(data.dt * 1000)}</p>
                 <div class="d-flex justify-content-between">
                   <div class="container text-center">
                     <div class="row">
@@ -177,11 +170,41 @@ const getCity = async (url) => {
                       <div class="col">
                         <p class="temperatura">${data.main.temp} ºC</p>
                       </div>
+
+                      <div class="container text-center">
+                      <div class="row justify-content-md-center">
+                        <div class="col col-lg-12">Sensación Térmica ${data.main.feels_like}
+                        </div>
+                      </div>
+                      </div>
+                    
+                      <!-- MIN Y MAX -->
+                      <div class="container text-center">
+                      <div class="row justify-content-md-center">
+                        <div class="col col-lg-6">
+                          MIN ${data.main.temp_min}
+                        </div>
+                        <div class="col col-lg-6">
+                          MAX ${data.main.temp_max}
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- VIENTO Y HUMEDAD -->
+                    <div class="container text-center">
+                      <div class="row justify-content-md-center">
+                        <div class="col col-lg-6">Viento ${data.wind.speed}km/h </div>
+                        <div class="col col-lg-6">Humedad ${data.main.humidity}%</div>
+                      </div>
+                    </div>
+
                     </div>
                   </div>
                 </div>
                 <div>
-                  <p class="descripcion">Descripción: ${data.weather[0].description}</p>
+                  <p class="descripcion">Descripción: ${
+                    data.weather[0].description
+                  }</p>
                 </div>
       `);
   } catch (error) {

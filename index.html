@@ -32,6 +32,7 @@
             <div id="divRow">
               <h3 class="ciudad" value="Mendoza">Ciudad</h3>
               <h5 class="pais" value="AR">País</h5>
+              <h5 class="pais">Fecha</h5>
               <div>
                 <div class="container-fluid text-center">
                   <div class="row d-flex flex-column">
@@ -43,6 +44,26 @@
                     </div>
                     <div class="col">
                       <p class="temperatura">25 ºC</p>
+                    </div>
+                    <div class="container text-center">
+                      <div class="row justify-content-md-center">
+                        <div class="col col-lg-12">Sensación Térmica 25ºC</div>
+                      </div>
+                    </div>
+                    
+                    <!-- MIN Y MAX -->
+                    <div class="container text-center">
+                      <div class="row justify-content-md-center">
+                        <div class="col col-lg-6">MIN 12ºC</div>
+                        <div class="col col-lg-6">MAX 29ºC</div>
+                      </div>
+                    </div>
+                    <!-- VIENTO Y HUMEDAD -->
+                    <div class="container text-center">
+                      <div class="row justify-content-md-center">
+                        <div class="col col-lg-6">Viento 15km/h </div>
+                        <div class="col col-lg-6">Humedad 18%</div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -58,7 +79,7 @@
             <h2 class="opcionesDeBusqueda">Opciones de búsqueda</h2>
             <div class="row myDivContainer">
               <!-- INPUT BUSCAR PAIS -->
-              <div class="col-8 col-sm-6 d-inline-flex p-2 fondoDiv" >
+              <div class="col-8 col-sm-6 d-inline-flex p-2 fondoDiv">
                 <!-- <label id="search-form" for=""></label> -->
                 <form class="form-inline" style="width: 100%" id="search-form">
                   <input
@@ -72,7 +93,7 @@
                   />
                 </form>
               </div>
-              
+
               <div class="col-4 col-sm-6 d-inline-flex p-2">
                 <select
                   name="miSelect"
@@ -150,7 +171,6 @@
                   name="search-country"
                   id="search-country"
                   placeholder="Buscar una ciudad del país elegido"
-                  
                 />
                 <button
                   id="buscar-ciudad"
