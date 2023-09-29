@@ -18,7 +18,7 @@ const buscarCiudad = (ciudad) => {
 
 const buscarCiudad2 = (ciudad) => {
   const urlCiudad2 = `http://api.openweathermap.org/geo/1.0/direct?q=${ciudad}&limit=5&appid=${api.key}`;
- // console.log(urlCiudad);
+  // console.log(urlCiudad);
   getCityWorld(urlCiudad2); //devuelve un listado de 5 ciudades con el mismo nombre.
 };
 
@@ -72,7 +72,7 @@ const buscarCiudadPais = (ciudadPais, pais) => {
 
 btn_africa.addEventListener("click", () => {
   selectorPaises.innerHTML = `
-  <option selected>Selecciona un país</option>`;
+  <option selected>Selecciona un país África</option>`;
   paisesAfrica.map((paises) => {
     selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
@@ -82,7 +82,7 @@ btn_africa.addEventListener("click", () => {
 
 btn_europa.addEventListener("click", () => {
   selectorPaises.innerHTML = `
-  <option selected>Selecciona un país</option>`;
+  <option selected>Selecciona un país Europa</option>`;
   paisesEuropa.map((paises) => {
     selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
@@ -92,7 +92,7 @@ btn_europa.addEventListener("click", () => {
 
 btn_america.addEventListener("click", () => {
   selectorPaises.innerHTML = `
-  <option selected>Selecciona un país</option>`;
+  <option selected>Selecciona un país de América</option>`;
   paisesAmerica.map((paises) => {
     selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
@@ -102,7 +102,7 @@ btn_america.addEventListener("click", () => {
 
 btn_asia.addEventListener("click", () => {
   selectorPaises.innerHTML = `
-  <option selected>Selecciona un país</option>`;
+  <option selected>Selecciona un país de Asia</option>`;
   paisesAsia.map((paises) => {
     selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
@@ -112,7 +112,7 @@ btn_asia.addEventListener("click", () => {
 
 btn_oceania.addEventListener("click", () => {
   selectorPaises.innerHTML = `
-  <option selected>Selecciona un país</option>`;
+  <option selected value="">Selecciona un país de Oceanía</option>`;
   paisesOceania.map((paises) => {
     selectorPaises.innerHTML += `
       <option value="${paises.value}">${paises.label}</option>
@@ -121,29 +121,35 @@ btn_oceania.addEventListener("click", () => {
 });
 
 buscar_ciudad.addEventListener("click", () => {
-  // console.log(inputCiudad.value, selectorPaises.value)
-  //inputCiudad.innerHTML = ""
-  buscarCiudadPais(inputCiudad.value, selectorPaises.value);
+  const selectedCountry = selectorPaises.value;
+
+  if (
+    paisesOceania.some((pais) => pais.value === selectedCountry) ||
+    paisesAfrica.some((pais) => pais.value === selectedCountry) ||
+    paisesAmerica.some((pais) => pais.value === selectedCountry) ||
+    paisesEuropa.some((pais) => pais.value === selectedCountry) ||
+    paisesAsia.some((pais) => pais.value === selectedCountry)
+  ) {
+    buscarCiudadPais(inputCiudad.value, selectorPaises.value);
+  } else {
+    alert("Por favor, elija un continente y un país.");
+  }
 });
 
+//////FUNCION BUSCAR ANTERIOR QUE FUNCIONA////////////
+
+// buscar_ciudad.addEventListener("click", () => {
+//   // console.log(inputCiudad.value, selectorPaises.value)
+//   //inputCiudad.innerHTML = ""
+//   buscarCiudadPais(inputCiudad.value, selectorPaises.value);
+// });
+
 nueva_busqueda.addEventListener("click", () => {
-  inputCiudad.innerHTML = "";
+  inputCiudad.innerHTML = `ME lo invento`;
   selectorPaises.innerHTML = `<option selected>Selecciona un país</option>`;
 });
 
-//try catch//
-/////hacer que cuando no encuentre la ciudad o tenga un error salga un alert
-// if (getCity("No devuelve nada o un error")) {
-//   alert("Prueba con otro nombre")
-// } else {
-//   getCity()
-// }
-
 ////////FX OBTENER DATOS////////
-
-///////////////////APARECE EL ALERT DESDE EL PRINCIPIO, COMO SI TIRARA ERROR DESDE EL PRINCIPIO, GET CITY VA A BUSCAR PRIMERO Y NO ENCUENTRA NADA Y SALE EL ALERT Y LUEGO PASA LO MISMO SI EL USUARIO ESCRIBE MAL LA CIUDAD/////////////////////////
-
-/////////////////////////que se imprima por defecto una ciudad desde el principio paraevitar el primr error
 
 const getCity = async (url) => {
   try {
@@ -187,79 +193,16 @@ const getCity = async (url) => {
 // Llama a la función getCity con la URL deseada
 //getCity();
 
-
 // TOAST
 //     document.getElementById("my-toast").innerHTML += `
-    //     <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
-    //   <div class="d-flex">
-    //     <div class="toast-body">
-    //     Prueba agregando el nombre completo de la ciudad
-    //     </div>
-    //     <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-    //   </div>
-    // </div>`
-    
-    ////////////////FX OK GET CITY SIN TRY CATCH//////////////
-
-    // const getCity = async (url) => {
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   //const city = data.result
-//   let icono = data.weather[0].icon;
-//   let row = document.getElementById("divRow");
-//   row.innerHTML = "";
-//   return (row.innerHTML +=
-//     `
-//     <h3 class="ciudad">${data.name}</h3>
-//               <h5 class="pais">País: ${data.sys.country}</h5>
-//               <div class="d-flex justify-content-between">
-//                 <div class="container text-center">
-//                   <div class="row">
-//                     <div class="col">
-//                       <img
-//                       src="${api.iconoURL}${icono}@4x.png" alt=""
-//                       />
-//                     </div>
-//                     <div class="col">
-//                       <p class="temperatura">${data.main.temp} ºC</p>
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//               <div>
-//                 <p class="descripcion">Descripción: ${data.weather[0].description}</p>
-//               </div>
-
-//     `);
-// };
-
-// getCity();
-
-
-//////////////////////////////////////////////////
-// const getCity = async (url) => {
-//   const res = await fetch(url);
-//   const data = await res.json();
-
-//   let row = document.getElementById("divRow");
-//   row.innerHTML = "";
-
-//   // Filtra las ciudades con el mismo nombre
-//   const citiesWithSameName = data.filter(data => data.name === cityName);
-
-//   // Recorre las ciudades filtradas y muestra su información
-//   citiesWithSameName.forEach(city => {
-//     let icono = city.weather[0].icon;
-//     row.innerHTML += `<img src="${api.iconoURL}${icono}@4x.png" alt="">
-//       <p class="pTitle">${city.name}</p>
-//       <p class="pTitle">${city.main.temp}</p>
-//       <p class="pTitle">${city.sys.country}</p>
-//       <p class="pTitle">${city.weather[0].description}</p>`;
-//   });
-// };
-
-// // Llama a la función con la URL de la API y el nombre de la ciudad deseado
-// //getCity("URL_DE_TU_API_AQUI", "NOMBRE_DE_LA_CIUDAD");
+//     <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+//   <div class="d-flex">
+//     <div class="toast-body">
+//     Prueba agregando el nombre completo de la ciudad
+//     </div>
+//     <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+//   </div>
+// </div>`
 
 const getCityWorld = async (url) => {
   const res = await fetch(url);
@@ -305,6 +248,32 @@ const getCityWorld = async (url) => {
 // }));
 
 // console.log(paises);
+
+///////////////////////////GET CITY FILTRANDO CADA NOMBRE///////////////////////////
+//////////////////////////////////////////////////
+// const getCity = async (url) => {
+//   const res = await fetch(url);
+//   const data = await res.json();
+
+//   let row = document.getElementById("divRow");
+//   row.innerHTML = "";
+
+//   // Filtra las ciudades con el mismo nombre
+//   const citiesWithSameName = data.filter(data => data.name === cityName);
+
+//   // Recorre las ciudades filtradas y muestra su información
+//   citiesWithSameName.forEach(city => {
+//     let icono = city.weather[0].icon;
+//     row.innerHTML += `<img src="${api.iconoURL}${icono}@4x.png" alt="">
+//       <p class="pTitle">${city.name}</p>
+//       <p class="pTitle">${city.main.temp}</p>
+//       <p class="pTitle">${city.sys.country}</p>
+//       <p class="pTitle">${city.weather[0].description}</p>`;
+//   });
+// };
+
+// // Llama a la función con la URL de la API y el nombre de la ciudad deseado
+// //getCity("URL_DE_TU_API_AQUI", "NOMBRE_DE_LA_CIUDAD");
 
 /////////////////////////////////////////////////////////////
 // ////////BUSCAR CIUDAD + PAIS////////
