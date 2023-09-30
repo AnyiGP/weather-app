@@ -23,14 +23,14 @@ export const provinciasArgentinaArray = [
   { value: "Mendoza", label: "Mendoza" },
   { value: "misiones", label: "Misiones" },
   { value: "Neuquén Province", label: "Neuquén" },
-  { value: "rioNegro", label: "Río Negro" },
+  { value: "Viedma", label: "Río Negro" },
   { value: "salta", label: "Salta" },
   { value: "San Juan", label: "San Juan" },
   { value: "san Luis", label: "San Luis" },
   { value: "Santa Cruz Province", label: "Santa Cruz" },
   { value: "Santa Fe", label: "Santa Fe" },
-  { value: "Santa Fe", label: "Santiago del Estero" },
-  { value: "tierraDelFuego", label: "Tierra del Fuego" },
+  { value: "Santiago del Estero Province", label: "Santiago del Estero" },
+  { value: "Ushuaia", label: "Tierra del Fuego" },
   { value: "Tucumán Province", label: "Tucumán" },
 ];
 
